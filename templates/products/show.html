@@ -1,0 +1,14 @@
+{% extends 'pages/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 {% if product.price > 100 %} style="color: red;" {% endif %}>
+        {{ product.name }}
+    </h2>
+    <p><strong>Description:</strong> {{ product.description }}</p>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <a href="{% url 'index' %}" class="btn btn-secondary">Back to Products</a>
+</div>
+{% endblock %}

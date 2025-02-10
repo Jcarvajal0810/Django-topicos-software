@@ -1,0 +1,23 @@
+{% extends 'pages/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card">
+            <img src="https://static.djangoproject.com/img/logos/django-logo-positive.svg" class="card-img-top img-card">
+            <div class="card-body text-center">
+                <a href="{% url 'show' id=product.id %}" class="btn btn-primary">
+                    {{ product.name }}
+                </a>
+                <p class="mt-2"><strong>Price: ${{ product.price }}</strong></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'create_product' %}" class="btn btn-success mt-3">Create New Product</a>
+
+{% endblock %}
